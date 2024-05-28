@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Animal Form</title>
+</head>
+<body>
+    <form th:action="@{/animal/save}" th:object="${animal}" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" th:field="*{name}" required><br>
+
+        <label for="category">Category:</label>
+        <select id="category" name="category" th:field="*{category}">
+            <option value="Mammal">Mammal</option>
+            <option value="Bird">Bird</option>
+            <option value="Reptile">Reptile</option>
+            <option value="Fish">Fish</option>
+        </select><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" th:field="*{description}"></textarea><br>
+
+        <label for="lifeExpectancy">Life Expectancy:</label>
+        <select id="lifeExpectancy" name="lifeExpectancy" th:field="*{lifeExpectancy}">
+            <option value="2-5">2-5 years</option>
+            <option value="5-10">5-10 years</option>
+            <option value="10-15">10-15 years</option>
+        </select><br>
+
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="file" required><br>
+
+        <!-- Google reCAPTCHA -->
+        <div class="g-recaptcha" data-sitekey="your-site-key"></div><br>
+
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
